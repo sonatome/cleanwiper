@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Policies & Contact</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Custom scrollbar for policy content */
+        .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+        }
+        /* Hide all pages by default, JS will manage visibility */
+        .page {
+            display: none;
+        }
+        /* Style for active navigation link */
+        .nav-link.active {
+            background-color: #1d4ed8;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+    <!-- 1. Include EmailJS SDK for sending emails -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+
+        <!-- Header/Navigation Bar -->
+        <nav class="bg-white shadow-lg sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <!-- Logo/App Name -->
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-blue-700">App Name</span>
+                    </div>
+                    <!-- Navigation Links -->
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <a href="./index.html#home" id="nav-home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">Home</a>
+                        <a href="#privacy" id="nav-privacy" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">Privacy Policy</a>
+                        <a href="#terms" id="nav-terms" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">Terms of Service</a>
+                        <a href="#contact" id="nav-contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow max-w-4xl mx-auto w-full p-4 sm:p-6 lg:p-8">
+
+            <!-- Home Page -->
+            <section id="home" class="page">
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+                    <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Welcome to Our Platform</h1>
+                    <p class="text-xl text-gray-600 mb-8">Your trusted partner in digital innovation.</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        We are committed to transparency and clarity regarding how we operate. Please use the navigation links above to review our **Privacy Policy**, **Terms of Service**, and find our **Contact Information**. Your security and satisfaction are our top priorities.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#privacy" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition duration-300">Read Privacy Policy &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Privacy Policy Page -->
+            <section id="privacy" class="page">
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-3">Privacy Policy</h2>
+                    <p class="text-sm text-gray-500 mb-6">Last updated: September 29, 2025</p>
+
+                    <div class="h-[60vh] overflow-y-auto pr-4 scroll-container">
+                        <!-- Section 1: Introduction -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">1. Information We Collect</h3>
+                        <p class="mb-4 text-gray-700">
+                            We collect several types of information for various purposes to provide and improve our service to you. This may include Personal Data (such as name and email address) and Usage Data (such as your device's IP address, browser type, and pages visited). We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.
+                        </p>
+
+                        <!-- Section 2: Use of Data -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">2. How We Use Your Data</h3>
+                        <p class="mb-4 text-gray-700">
+                            The data collected is used to provide and maintain the Service, notify you about changes to our Service, allow you to participate in interactive features when you choose to do so, provide customer support, and monitor the usage of the Service. We are committed to processing your data securely and ensuring its confidentiality.
+                        </p>
+
+                        <!-- Section 3: Data Security -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">3. Security of Data</h3>
+                        <p class="mb-4 text-gray-700">
+                            The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+                        </p>
+
+                        <!-- Section 4: Your Data Protection Rights -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">4. Your Rights</h3>
+                        <p class="mb-4 text-gray-700">
+                            Depending on your location, you have rights regarding your personal data, including the right to access, update, or delete the information we have on you. Please contact us if you wish to exercise these rights.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Terms of Service Page -->
+            <section id="terms" class="page">
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-3">Terms of Service</h2>
+                    <p class="text-sm text-gray-500 mb-6">Effective Date: October 1, 2024</p>
+
+                    <div class="h-[60vh] overflow-y-auto pr-4 scroll-container">
+                        <!-- Section 1: Acceptance of Terms -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">1. Agreement to Terms</h3>
+                        <p class="mb-4 text-gray-700">
+                            By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. These Terms apply to all visitors, users, and others who wish to access or use the Service.
+                        </p>
+
+                        <!-- Section 2: Intellectual Property -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">2. Intellectual Property</h3>
+                        <p class="mb-4 text-gray-700">
+                            The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of App Name and its licensors. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of App Name.
+                        </p>
+
+                        <!-- Section 3: User Content -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">3. User Responsibilities</h3>
+                        <p class="mb-4 text-gray-700">
+                            You are responsible for all data, text, files, software, graphics, and other materials that you upload, post, transmit, or otherwise make available via the Service ("User Content"). You agree not to post, upload, or transmit any User Content that is illegal, harmful, or infringes on the rights of others.
+                        </p>
+
+                        <!-- Section 4: Limitation of Liability -->
+                        <h3 class="text-xl font-semibold text-blue-700 mt-6 mb-3">4. Limitation of Liability</h3>
+                        <p class="mb-4 text-gray-700">
+                            In no event shall App Name, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us Page -->
+            <section id="contact" class="page">
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-3">Get in Touch</h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Contact Form -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-4">Send us a Message</h3>
+                            <!-- Add a unique ID to the form for EmailJS integration -->
+                            <form id="contactForm" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                    <!-- Use name attribute for EmailJS to map fields -->
+                                    <input type="text" id="name" name="from_name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Your Name" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" name="user_email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="your.email@example.com" required>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                    <textarea id="message" rows="4" name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="What can we help you with?" required></textarea>
+                                </div>
+                                <button type="submit" id="submitButton" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-xl shadow-md hover:bg-blue-700 transition duration-300">
+                                    Send Inquiry
+                                </button>
+                                <div id="formMessage" class="mt-4 text-center text-sm hidden"></div>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-4">Our Details</h3>
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <p class="font-medium text-gray-900">General Support</p>
+                                    <p>support@appname.com</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Legal Inquiries</p>
+                                    <p>legal@appname.com</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Address</p>
+                                    <p>123 Main Street, Suite 400<br>City, State 90210, Country</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Phone</p>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-4 text-center mt-8">
+            <p class="text-sm">&copy; 2025 App Name. All rights reserved. |
+                <a href="#privacy" class="hover:text-blue-400 transition-colors">Privacy</a> |
+                <a href="#terms" class="hover:text-blue-400 transition-colors">Terms</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Page Routing and Form Handling -->
+    <script>
+        // Get all page sections and navigation links
+        const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitButton = document.getElementById('submitButton');
+
+        // 2. Initialize EmailJS with your Public Key
+        // --- STEP 1: Replace 'YOUR_EMAILJS_PUBLIC_KEY' with the key from your EmailJS Account settings. ---
+        emailjs.init({
+            publicKey: 'a6xclp_ZjBZwev9BH', // <-- REPLACE THIS
+        });
+
+
+        /**
+         * Shows the requested page and updates the active navigation link.
+         * @param {string} pageId - The ID of the page to show (e.g., 'home', 'privacy').
+         */
+        function showPage(pageId) {
+            // 1. Hide all pages
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // 2. Remove 'active' class from all nav links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // 3. Show the requested page
+            const currentPage = document.getElementById(pageId);
+            if (currentPage) {
+                currentPage.style.display = 'block';
+            }
+
+            // 4. Set 'active' class on the corresponding nav link
+            const activeLink = document.getElementById(`nav-${pageId}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        /**
+         * Handles routing based on the URL hash.
+         */
+        function handleRouting() {
+            let hash = window.location.hash.substring(1); // Get hash without '#'
+            if (hash === '') {
+                hash = 'home'; // Default to home page
+            }
+            // Ensure the hash corresponds to a valid page ID
+            const pageId = hash.toLowerCase();
+            const validPages = ['home', 'privacy', 'terms', 'contact'];
+
+            if (validPages.includes(pageId)) {
+                showPage(pageId);
+            } else {
+                // If invalid hash, redirect to home
+                window.location.hash = '#home';
+                showPage('home');
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // 1. Handle routing on page load
+        window.addEventListener('load', handleRouting);
+
+        // 2. Handle routing when the URL hash changes (when a nav link is clicked)
+        window.addEventListener('hashchange', handleRouting);
+
+        // 3. Handle Contact Form submission (Updated for EmailJS)
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Change button state to indicate sending
+            submitButton.disabled = true;
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            submitButton.classList.add('bg-gray-400');
+            
+            // Prepare message box for feedback
+            formMessage.classList.remove('hidden', 'text-red-500', 'text-green-500', 'bg-red-50', 'bg-green-50');
+            formMessage.classList.add('p-3', 'rounded-lg');
+            formMessage.style.display = 'block';
+
+            // Send email using EmailJS
+            try {
+                // --- STEP 2: Replace these placeholders with your EmailJS Service ID and Template ID. ---
+                const serviceId = 'service_16jxyry'; // <-- REPLACE THIS
+                const templateId = 'template_ydjizwp'; // <-- REPLACE THIS
+                
+                // Form Variables available for use in your EmailJS Template:
+                // 1. {{ from_name }} (The sender's name)
+                // 2. {{ user_email }} (The sender's email address)
+                // 3. {{ message }} (The body of their message)
+                const response = await emailjs.sendForm(serviceId, templateId, this);
+
+                if (response.status === 200) {
+                    formMessage.classList.add('text-green-500', 'bg-green-50');
+                    formMessage.textContent = 'Success! Your inquiry has been sent. We will respond soon.';
+                    contactForm.reset(); // Clear form on success
+                } else {
+                     throw new Error(`EmailJS responded with status: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Email sending failed:', error);
+                formMessage.classList.add('text-red-500', 'bg-red-50');
+                formMessage.textContent = 'Error: The email failed to send. Please check your console for details or try again later.';
+            } finally {
+                // Revert button state after 5 seconds
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('bg-gray-400');
+                    submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            }
+        });
+
+    </script>
+</body>
+</html>
